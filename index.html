@@ -1,84 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi pagina HTML</title>
-</head>
+  <!-- ============================================================
+       CONFIGURACIÓN BÁSICA DE LA PÁGINA
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <!-- Este meta es CLAVE para que la versión mobile se vea bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economoda</title>
 
+  <!-- Tipografía Poppins (Google Fonts): 400 regular, 600 semibold, 700 bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
 
-    <h1>Test primera pagina</h1>
+  <!-- Contenedor general: en desktop se centra y limita el ancho -->
+  <div class="pagina">
 
-    <h2>Formulario</h2>
+    <!-- ============================================================
+         1. HEADER (logo + botón Suscribite + ícono de usuario)
+         ============================================================ -->
+    <header class="header">
+      <!-- Logo: texto "Economoda" + ícono del logo -->
+      <a href="#" class="logo" aria-label="Economoda, ir al inicio">
+        <span class="logo__texto">Economoda</span>
+        <img class="logo__icono" src="img/logo-grande-blanco.png" alt="">
+      </a>
 
-    <p>
-        Solo HTML.
-        No usa CSS ni JavaScript.
-    </p>
+      <!-- Acciones de la derecha: suscripción y perfil -->
+      <div class="header__acciones">
+        <button class="boton-suscribite" type="button" data-abrir-modal>Suscribite</button>
+        <button class="boton-usuario" type="button" aria-label="Mi cuenta" data-abrir-modal>
+          <img src="img/persona.png" alt="">
+        </button>
+      </div>
+    </header>
 
-    <hr>
+    <!-- ============================================================
+         2. NAVEGACIÓN (menú de secciones)
+         En mobile se desplaza horizontalmente; en desktop se reparte.
+         ============================================================ -->
+    <nav class="menu" aria-label="Secciones">
+      <ul class="menu__lista">
+        <li><a href="#" class="menu__link menu__link--activo">Actualidad</a></li>
+        <li><a href="#" class="menu__link">Tendencias</a></li>
+        <li><a href="#" class="menu__link">Historias</a></li>
+        <li><a href="#" class="menu__link">Tecnología</a></li>
+        <li><a href="#" class="menu__link">Sustentabilidad</a></li>
+        <li><a href="#" class="menu__link">Caso de estudio</a></li>
+        <li><a href="#" class="menu__link">Moda</a></li>
+        <li><a href="#" class="menu__link">Quiénes somos</a></li>
+      </ul>
+    </nav>
 
-    <h3>Datos personales</h3>
+    <!-- ============================================================
+         3. CONTENIDO PRINCIPAL
+         Mobile: nota principal arriba y notas apiladas debajo.
+         Desktop: nota principal a la izquierda, notas a la derecha.
+         ============================================================ -->
+    <main class="contenido">
 
-    <form>
+      <!-- ---------- 3.1 NOTA PRINCIPAL (portada) ---------- -->
+      <article class="portada">
+        <a href="#" class="portada__enlace">
+          <img class="portada__foto" src="img/foto-portada-principal.jpg"
+               alt="Personas con traje mirando sus celulares">
 
-        <label for="nombre">Nombre:</label>
-        <br>
-        <input type="text" id="nombre" name="nombre" placeholder="Escribi tu nombre">
+          <!-- Texto de la nota principal (en mobile va SOBRE la foto) -->
+          <div class="portada__texto">
+            <span class="portada__seccion">Tecnología</span>
+            <h1 class="portada__titulo">Tecnología para la longevidad el nuevo lujo</h1>
+            <!-- Párrafo: máximo 4 líneas (se ve solo en desktop) -->
+            <p class="parrafo">
+              Las marcas de lujo apuestan por dispositivos y materiales pensados para durar:
+              reparación, trazabilidad digital y servicios de mantenimiento que alargan la vida
+              de cada prenda. La tecnología deja de ser sinónimo de novedad y mide el valor
+              en años de uso.
+            </p>
+          </div>
+        </a>
+      </article>
 
-        <br><br>
+      <!-- ---------- 3.2 LISTA DE NOTAS ---------- -->
+      <section class="notas" aria-label="Más notas">
 
-        <label for="email">Correo electrónico:</label>
-        <br>
-        <input type="email" id="email" name="email" placeholder="ejemplo@email.com">
+        <!-- Nota 1 -->
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Sustentabilidad</span>
+            <h2 class="nota__titulo">¿Qué significa realmente el “Hecho a Mano”?</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="img/foto-nota1.jpg" alt="Mujer con pollera larga sobre un puente de madera">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                “Toda la ropa está hecha a mano”. En los últimos años, esta frase se ha
+                popularizado en el mundo de la moda.
+              </p>
+            </div>
+          </a>
+        </article>
 
-        <br><br>
+        <!-- Nota 2 (exclusiva para suscriptores) -->
+        <article class="nota nota--premium">
+          <a href="#" class="nota__enlace" data-nota-premium>
+            <span class="nota__seccion">Moda</span>
+            <h2 class="nota__titulo">¿La moda pertenece ahora a los milenials?</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="img/foto-nota2.jpg" alt="Collage de diseñadores de moda">
+              <p class="bajada">
+                En los meses posteriores a la temporada Primavera/Verano 2026, hubo nuevas
+                contrataciones en las principales firmas.
+              </p>
+            </div>
+            <!-- Etiqueta "Solo suscriptores" con estrella -->
+            <span class="etiqueta-premium">
+              <img src="img/estrella-suscripcion.png" alt="">
+              Solo suscriptores
+            </span>
+          </a>
+        </article>
 
-        <label for="edad">Edad:</label>
-        <br>
-        <input type="number" id="edad" name="edad">
+        <!-- Nota 3 -->
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Los consumidores opinan sobre la desaceleración económica</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="img/foto-nota3.jpg" alt="Calle con banderas de marcas de lujo">
+              <p class="bajada">
+                La guía para entender la reciente recesión de la industria y las estrategias
+                para ser un mejor consumidor.
+              </p>
+            </div>
+          </a>
+        </article>
 
-        <br><br>
+        <!-- Publicidad (opcional: se puede borrar este bloque) 
+        <aside class="publicidad" aria-label="Publicidad">
+          <span class="publicidad__etiqueta">Publicidad</span>
+          <img src="img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+        </aside> -->
 
-        <label for="pais">Pais:</label>
-        <br>
-        <select id="pais" name="pais">
-            <option value="">Selecciona un pais</option>
-            <option value="argentina">Argentina</option>
-            <option value="uruguay">Uruguay</option>
-            <option value="chile">Chile</option>
-            <option value="brasil">Brasil</option>
-        </select>
+      </section>
+    </main>
+  </div>
 
-        <br><br>
+  <!-- ============================================================
+       4. VENTANA (MODAL) DE SUSCRIPCIÓN
+       Se abre con "Suscribite", con el ícono de usuario
+       o al tocar una nota "Solo suscriptores".
+       ============================================================ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+      <img class="modal__logo" src="img/logo-largo-negro.png" alt="Economoda">
+      <h2 id="modal-titulo" class="modal__titulo">Suscribite a Economoda</h2>
+      <p class="modal__texto">Accedé a todas las notas exclusivas para suscriptores.</p>
+      <button class="modal__boton" type="button" data-cerrar-modal>Quiero suscribirme</button>
+    </div>
+  </div>
 
-        <label for="mensaje">Mensaje:</label>
-        <br>
-        <textarea id="mensaje" name="mensaje" rows="5" cols="40"
-                  placeholder="Escribi un mensaje..."></textarea>
-
-        <br><br>
-
-        <label>
-            <input type="checkbox" name="terminos">
-            Acepto los terminos y condiciones
-        </label>
-
-        <br><br>
-
-        <button type="submit">Enviar formulario</button>
-
-    </form>
-
-    <hr>
-
-    <h3>Lista de cosas que me gustan</h3>
-
-    <ul>
-        <li>Programar</li>
-        <li>Jugar</li>
-        <li>Escuchar musica</li>
-    </ul>
-
+  <!-- Lógica de la página -->
+  <script src="js/main.js"></script>
 </body>
 </html>
