@@ -70,10 +70,16 @@ h1, h2, h3 {
 
 /* Contenedor general de la página */
 .pagina {
+  display: flex;               /* columna: permite que el footer quede siempre abajo */
+  flex-direction: column;
   max-width: 1100px;
   margin: 0 auto;
   background: var(--color-fondo);
   min-height: 100vh;
+}
+
+.contenido {
+  flex: 1;                     /* el contenido ocupa el espacio libre y empuja el footer */
 }
 
 /* Elementos que solo se ven en desktop (en mobile se ocultan) */
@@ -137,13 +143,23 @@ h1, h2, h3 {
   background: #fff;
 }
 
-/* Botón con ícono de usuario (círculo oscuro con ícono) */
+/* Botón de usuario / iniciar sesión: círculo gris claro (igual que "Suscribite") */
 .boton-usuario {
-  width: 28px;
-  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 6px;                /* deja aire entre el círculo y el ícono */
   border: none;
-  background: transparent;
-  padding: 0;
+  border-radius: 50%;          /* lo vuelve circular */
+  background: #e3e3e3;
+  transition: background 0.2s;
+}
+
+/* Al pasar el mouse se vuelve blanco, como "Suscribite" */
+.boton-usuario:hover {
+  background: #fff;
 }
 
 .boton-usuario img {
@@ -375,6 +391,48 @@ h1, h2, h3 {
 
 
 /* ==========================================================
+   8.b FOOTER
+   Mobile: redes a la izquierda y logo a la derecha, en una fila.
+   ========================================================== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--espacio);
+  background: var(--color-principal);
+}
+
+.footer__redes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Cada red es un botón con su imagen */
+.footer__red {
+  display: block;
+  width: 34px;
+  height: 34px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.footer__red:hover {
+  transform: scale(1.1);       /* se agranda un poco al pasar el mouse */
+  opacity: 0.85;
+}
+
+.footer__red img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer__logo {
+  width: 120px;
+}
+
+
+/* ==========================================================
    9. MODAL DE SUSCRIPCIÓN
    Oculto por defecto (atributo hidden); el JS lo muestra.
    ========================================================== */
@@ -440,15 +498,115 @@ h1, h2, h3 {
 
 
 /* ==========================================================
+   9.b MODAL DE LOGIN (variante del modal, fondo azul oscuro)
+   Reutiliza .modal y .modal__cerrar; solo cambia la caja.
+   ========================================================== */
+.modal__caja--login {
+  max-width: 400px;
+  min-height: 480px;
+  padding: 56px 32px 40px;
+  background: var(--color-principal);
+  color: #d0d3d6;
+  text-align: left;
+  border-radius: 24;
+}
+
+/* La X en blanco para que se vea sobre el fondo oscuro */
+.modal__caja--login .modal__cerrar {
+  color: #fff;
+}
+
+/* Logo centrado arriba */
+.login__logo {
+  width: 130px;
+  margin: 0 auto 56px;
+}
+
+.login__texto {
+  font-size: 0.9rem;
+  font-weight: var(--peso-regular);
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+/* El label solo lo leen los lectores de pantalla (el placeholder cumple su función visual) */
+.login__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border-radius: 10px;
+}
+
+/* Campo de correo: transparente con borde gris claro */
+.login__input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--fuente);
+  font-size: 0.85rem;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #a9adb1;
+  border-radius: 10px;
+}
+
+.login__input::placeholder {
+  color: #c4c7ca;
+}
+
+.login__input:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.login__error {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #ffb4b4;
+}
+
+/* Botón "Continuar": gris claro, texto negro en bold */
+.login__boton {
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px;
+  font-family: var(--fuente);
+  font-size: 1.2rem;
+  font-weight: var(--peso-bold);
+  color: #000;
+  background: #d9d9d9;
+  border: none;
+  border-radius: 15px;
+  transition: background 0.2s;
+}
+
+.login__boton:hover {
+  background: #fff;
+}
+
+.login__registro {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.login__registro a {
+  text-decoration: underline;
+}
+
+
+/* ==========================================================
    10. TABLET Y DESKTOP (a partir de 768px)
    Se redefinen solo las cosas que cambian respecto de mobile.
    ========================================================== */
 @media (min-width: 768px) {
+	
 
   .solo-desktop {
     display: block;
   }
-
+  
   /* ----- Header: logo centrado, botones a la derecha ----- */
   .header {
     position: relative;
@@ -464,11 +622,23 @@ h1, h2, h3 {
     width: 64px;
     height: 64px;
   }
+  
+  .boton-suscribite {
+	font-size: 1rem;        /* tamaño del texto (en mobile es 0.8rem) */
+	padding: 6px 22px;      /* alto y ancho de la pastilla */
+   }
+
+   .boton-usuario {
+	width: 42px;            /* tamaño del círculo (en mobile es 30px) */
+	height: 42px;
+	padding: 9px;           /* aire entre el círculo y el ícono */
+   }
 
   .header__acciones {
     position: absolute;
     right: 32px;
-    top: 24px;
+    top: 32px;
+	gap: 10px;              /* separación entre los dos botones */
   }
 
   /* ----- Menú: todas las secciones repartidas en la fila ----- */
@@ -481,6 +651,7 @@ h1, h2, h3 {
   .menu__link {
     font-size: 1rem;
   }
+  
 
   /* Portada: el texto pasa DEBAJO de la foto, sin superponerse */
   .portada__foto {
@@ -500,7 +671,8 @@ h1, h2, h3 {
 
   .portada__titulo {
     font-size: 2.2rem;
-    margin-bottom: 14px;
+	margin-top: 10px;
+    margin-bottom: 0px;
   }
 
   /* El párrafo (máx. 4 líneas) aparece en desktop */
@@ -569,9 +741,34 @@ h1, h2, h3 {
     grid-template-columns: 1.15fr 1fr;
     align-items: start;
   }
+  
+
 
   .notas {
     max-width: none;
     margin: 0;
+  }
+}
+
+
+/* ==========================================================
+   12. FOOTER EN TABLET Y DESKTOP (a partir de 768px)
+   ========================================================== */
+@media (min-width: 768px) {
+  .footer {
+    padding: 18px 32px;
+  }
+
+  .footer__red {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer__redes {
+    gap: 16px;
+  }
+
+  .footer__logo {
+    width: 170px;
   }
 }
