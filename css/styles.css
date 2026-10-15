@@ -1,0 +1,577 @@
+/* ==========================================================
+   ECONOMODA - HOJA DE ESTILOS
+   Enfoque MOBILE FIRST: los estilos base son para celular y
+   luego se agregan @media (min-width) para tablet y desktop.
+   ========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES (colores, tipografía, medidas)
+   Cambiando acá se actualiza toda la página.
+   ========================================================== */
+:root {
+  --color-principal: #3c434a;   /* azul oscuro de la marca */
+  --color-texto: #1a1a1a;
+  --color-fondo: #ffffff;
+  --color-gris-fondo: #e6e6e6;  /* fondo exterior (alrededor de la página) */
+  --color-linea: #3c434a;
+
+  --fuente: "Poppins", sans-serif;
+  --peso-regular: 400;
+  --peso-semibold: 600;
+  --peso-bold: 700;
+
+  --espacio: 16px;              /* margen lateral en mobile */
+}
+
+
+/* ==========================================================
+   2. RESET Y ESTILOS GENERALES
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente);
+  font-weight: var(--peso-regular);   /* texto normal en regular */
+  color: var(--color-texto);
+  background: var(--color-gris-fondo);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Los títulos van en bold */
+h1, h2, h3 {
+  font-weight: var(--peso-bold);
+}
+
+/* Contenedor general de la página */
+.pagina {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--color-fondo);
+  min-height: 100vh;
+}
+
+/* Elementos que solo se ven en desktop (en mobile se ocultan) */
+.solo-desktop {
+  display: none;
+}
+
+
+/* ==========================================================
+   3. HEADER (logo + suscribite + usuario)
+   ========================================================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--espacio);
+  background: var(--color-principal);
+  color: #fff;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo__texto {
+  font-size: 1.6rem;
+  font-weight: var(--peso-bold);
+  letter-spacing: 0.5px;
+}
+
+.logo__icono {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  padding: 2px;
+}
+
+/* Contenedor de botones de la derecha */
+.header__acciones {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Botón "Suscribite" (pastilla gris clara) */
+.boton-suscribite {
+  background: #e3e3e3;
+  color: var(--color-principal);
+  border: none;
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-size: 0.8rem;
+  font-weight: var(--peso-regular);
+  transition: background 0.2s;
+}
+
+.boton-suscribite:hover {
+  background: #fff;
+}
+
+/* Botón con ícono de usuario (círculo oscuro con ícono) */
+.boton-usuario {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.boton-usuario img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ==========================================================
+   4. MENÚ DE NAVEGACIÓN
+   En mobile: una sola fila con scroll horizontal.
+   ========================================================== */
+.menu {
+  background: var(--color-principal);
+  border-top: 1px solid #1d2125;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;           /* oculta la barra de scroll en Firefox */
+}
+
+.menu::-webkit-scrollbar {
+  display: none;                   /* oculta la barra de scroll en Chrome/Safari */
+}
+
+.menu__lista {
+  display: flex;
+  gap: 18px;
+  padding: 8px var(--espacio);
+  width: max-content;              /* permite que la lista sea más ancha que la pantalla */
+  min-width: 100%;
+}
+
+.menu__link {
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: var(--peso-regular);
+  white-space: nowrap;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.menu__link:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sección activa: subrayada */
+.menu__link--activo {
+  border-color: #fff;
+}
+
+
+/* ==========================================================
+   5. NOTA PRINCIPAL (PORTADA)
+   Mobile: el texto va SOBRE la foto.
+   ========================================================== */
+.portada__enlace {
+  position: relative;
+  display: block;
+}
+
+.portada__foto {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Texto sobre la foto (degradé oscuro abajo para que se lea) */
+.portada__texto {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 70px var(--espacio) 26px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+}
+
+/* Nombre de la sección: regular */
+.portada__seccion {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: var(--peso-regular);
+  margin-bottom: 6px;
+}
+
+/* Título de la nota principal sobre la foto: SEMIBOLD */
+.portada__titulo {
+  font-size: 1.35rem;
+  font-weight: var(--peso-semibold);
+  line-height: 1.3;
+}
+
+/* El párrafo de la portada solo se muestra en desktop */
+.portada .parrafo {
+  display: none;
+}
+
+
+/* ==========================================================
+   6. PÁRRAFO Y BAJADA (límite de líneas)
+   ========================================================== */
+
+/* Bajada: máximo 3 líneas (el resto se corta con "...") */
+.bajada {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Párrafo: máximo 4 líneas */
+.parrafo {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ==========================================================
+   7. LISTA DE NOTAS
+   Cada nota usa grid para ordenar: sección, título, foto, bajada.
+   ========================================================== */
+.notas {
+  padding: 0 var(--espacio) 24px;
+}
+
+.nota {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-linea);
+}
+
+.nota:last-of-type {
+  border-bottom: none;
+}
+
+/* Mobile:
+   sección (arriba, centrada)
+   título  (centrado)
+   foto + bajada (en una fila)
+   etiqueta premium (a la derecha) */
+.nota__enlace {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  grid-template-areas:
+    "seccion seccion"
+    "titulo  titulo"
+    "foto    bajada"
+    "premium premium";
+  column-gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+
+/* .nota__cuerpo no genera caja propia: sus hijos (foto y bajada)
+   se acomodan directamente en la grilla de .nota__enlace */
+.nota__cuerpo {
+  display: contents;
+}
+
+.nota__seccion {
+  grid-area: seccion;
+  font-size: 0.85rem;
+  font-weight: var(--peso-regular);   /* nombres de sección en regular */
+  margin-bottom: 4px;
+}
+
+.nota__titulo {
+  grid-area: titulo;
+  font-size: 1rem;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.nota__foto {
+  grid-area: foto;
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+}
+
+.nota .bajada {
+  grid-area: bajada;
+}
+
+.nota__enlace:hover .nota__titulo {
+  text-decoration: underline;
+}
+
+/* Etiqueta "Solo suscriptores" */
+.etiqueta-premium {
+  grid-area: premium;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+}
+
+.etiqueta-premium img {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ==========================================================
+   8. PUBLICIDAD
+   ========================================================== */
+.publicidad {
+  margin: 10px auto 0;
+  max-width: 300px;
+  text-align: center;
+}
+
+.publicidad__etiqueta {
+  display: block;
+  font-size: 0.65rem;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+
+/* ==========================================================
+   9. MODAL DE SUSCRIPCIÓN
+   Oculto por defecto (atributo hidden); el JS lo muestra.
+   ========================================================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__caja {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.modal__cerrar {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--color-principal);
+}
+
+.modal__logo {
+  width: 180px;
+  margin: 0 auto 12px;
+}
+
+.modal__titulo {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.modal__texto {
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.modal__boton {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  background: var(--color-principal);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================================
+   10. TABLET Y DESKTOP (a partir de 768px)
+   Se redefinen solo las cosas que cambian respecto de mobile.
+   ========================================================== */
+@media (min-width: 768px) {
+
+  .solo-desktop {
+    display: block;
+  }
+
+  /* ----- Header: logo centrado, botones a la derecha ----- */
+  .header {
+    position: relative;
+    justify-content: center;
+    padding: 20px 32px;
+  }
+
+  .logo__texto {
+    font-size: 2.4rem;
+  }
+
+  .logo__icono {
+    width: 64px;
+    height: 64px;
+  }
+
+  .header__acciones {
+    position: absolute;
+    right: 32px;
+    top: 24px;
+  }
+
+  /* ----- Menú: todas las secciones repartidas en la fila ----- */
+  .menu__lista {
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 24px;
+  }
+
+  .menu__link {
+    font-size: 1rem;
+  }
+
+  /* Portada: el texto pasa DEBAJO de la foto, sin superponerse */
+  .portada__foto {
+    height: 420px;
+  }
+
+  .portada__texto {
+    position: static;
+    padding: 28px 32px;
+    color: var(--color-texto);
+    background: none;
+  }
+
+  .portada__seccion {
+    font-size: 1.1rem;
+  }
+
+  .portada__titulo {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+
+  /* El párrafo (máx. 4 líneas) aparece en desktop */
+  .portada .parrafo {
+    display: -webkit-box;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Notas: foto grande a la izquierda y texto a la derecha */
+  .notas {
+    padding: 0 32px 24px;
+    max-width: 560px;      /* en tablet las notas no se estiran de más */
+    margin: 0 auto;
+  }
+
+  .nota {
+    padding: 24px 0;
+  }
+
+  .nota__enlace {
+    grid-template-columns: 140px 1fr;
+    grid-template-areas:
+      "foto seccion"
+      "foto titulo"
+      "foto bajada"
+      "foto premium";
+    column-gap: 28px;
+    align-content: center;
+  }
+
+  .nota__foto {
+    width: 140px;
+    height: 140px;
+  }
+
+  .nota__seccion {
+    align-self: end;
+    font-size: 0.9rem;
+  }
+
+  .nota__titulo {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    align-self: start;
+  }
+
+  .bajada {
+    font-size: 0.75rem;
+  }
+
+  .etiqueta-premium {
+    align-self: start;
+  }
+}
+
+
+/* ==========================================================
+   11. DESKTOP GRANDE (a partir de 1000px)
+   Portada a la izquierda y notas a la derecha (2 columnas).
+   Entre 768px y 999px queda en 1 columna (portada arriba, notas abajo).
+   ========================================================== */
+@media (min-width: 1000px) {
+  .contenido {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: start;
+  }
+
+  .notas {
+    max-width: none;
+    margin: 0;
+  }
+}
