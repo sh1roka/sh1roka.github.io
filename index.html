@@ -16,6 +16,9 @@
 
   <!-- Hoja de estilos -->
   <link rel="stylesheet" href="css/styles.css">
+  
+  <link rel="icon" type="image/png" href="img/logo-tab.png">
+  
 </head>
 <body>
 
@@ -54,7 +57,7 @@
         <li><a href="#" class="menu__link">Sustentabilidad</a></li>
         <li><a href="#" class="menu__link">Caso de estudio</a></li>
         <li><a href="#" class="menu__link">Moda</a></li>
-        <li><a href="#" class="menu__link">Quiénes somos</a></li>
+        <li><a href="quienes-somos/index.html" class="menu__link">Quiénes somos</a></li>
       </ul>
     </nav>
 
@@ -120,7 +123,7 @@
         </article>
 
         <!-- Nota 3 -->
-        <article class="nota">
+        <article class="nota" ID="nota3">
           <a href="#" class="nota__enlace">
             <span class="nota__seccion">Tendencias</span>
             <h2 class="nota__titulo">Los consumidores opinan sobre la desaceleración económica</h2>
@@ -141,16 +144,29 @@
         </aside> -->
 
       </section>
+
+      <!-- ---------- 3.3 BANNER DE PUBLICIDAD ----------
+           Va DENTRO de .contenido, después de la portada y las notas.
+           Ocupa todo el ancho (en desktop abarca las 2 columnas),
+           por eso no se pisa con nada y el footer queda justo debajo. -->
+      <aside class="banner" aria-label="Publicidad">
+        <picture>
+          <!-- Desktop/tablet (768px o más): banner horizontal -->
+          <source media="(min-width: 768px)" srcset="img/publicidad-banner-desktop.png">
+          <!-- Mobile: banner más alto, para que se vea bien en pantallas angostas -->
+          <img src="img/publicidad-banner-mobile.png" alt="Espacio publicitario">
+        </picture>
+      </aside>
     </main>
 
     <!-- ============================================================
-         3.3 FOOTER (redes sociales a la izquierda + logo a la derecha)
+         3.4 FOOTER (redes sociales a la izquierda + logo a la derecha)
          ============================================================ -->
     <footer class="footer">
       <!-- Redes sociales -->
       <ul class="footer__redes">
         <li>
-          <a href="#" class="footer__red" aria-label="Instagram de Economoda">
+          <a href="https://www.instagram.com/economoda__/" class="footer__red" aria-label="Instagram de Economoda" target="_blank" rel="noopener noreferrer">
             <img src="img/logo-instagram.png" alt="Instagram">
           </a>
         </li>
