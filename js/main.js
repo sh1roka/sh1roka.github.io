@@ -8,18 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* --------------------------------------------------------
      1. MENÚ: marcar como activa la sección en la que se hace clic
-     (quita la clase "activo" del anterior y se la pone al nuevo)
+     - Los links con href="#" son de la maqueta (todavía no tienen página):
+       no navegan y solo cambian la sección activa.
+     - Los links con una página real (ej: Quiénes somos) navegan normalmente;
+       la sección activa de cada página ya viene marcada en su HTML.
      -------------------------------------------------------- */
   const linksMenu = document.querySelectorAll(".menu__link");
 
   linksMenu.forEach((link) => {
     link.addEventListener("click", (evento) => {
-      evento.preventDefault(); // es una maqueta: no navega a ninguna parte
+      if (link.getAttribute("href") !== "#") return; // página real: deja navegar
 
+      evento.preventDefault();
       linksMenu.forEach((l) => l.classList.remove("menu__link--activo"));
       link.classList.add("menu__link--activo");
     });
   });
+
+  // En mobile el menú se desplaza: mostramos la sección activa a la vista
+  // (así "Quiénes somos", que está al final, no queda escondida)
+  const linkActivo = document.querySelector(".menu__link--activo");
+  if (linkActivo) {
+    linkActivo.scrollIntoView({ inline: "center", block: "nearest" });
+  }
 
 
   /* --------------------------------------------------------
@@ -117,12 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* --------------------------------------------------------
-     5. LINKS DE NOTAS: como es una maqueta, evitamos que
-     el "#" suba la página al inicio al hacer clic.
+     5. LINKS DE LA MAQUETA: los que tienen href="#" no hacen nada
+     (evita que la página suba al inicio al hacer clic).
+     Los links a páginas reales (logo, menú) navegan normalmente.
      -------------------------------------------------------- */
-  document
-    .querySelectorAll(".nota__enlace:not([data-nota-premium]), .portada__enlace, .logo")
-    .forEach((enlace) => {
-      enlace.addEventListener("click", (evento) => evento.preventDefault());
-    });
+  document.querySelectorAll('a[href="#"]').forEach((enlace) => {
+    enlace.addEventListener("click", (evento) => evento.preventDefault());
+  });
 });
