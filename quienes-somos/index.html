@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       CONFIGURACIÓN BÁSICA DE LA PÁGINA
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <!-- Este meta es CLAVE para que la versión mobile se vea bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes somos | Economoda</title>
+
+  <!-- Tipografía Poppins (Google Fonts): 400 regular, 600 semibold, 700 bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <link rel="icon" type="image/png" href="../img/logo-tab.png">
+  
+</head>
+<body>
+
+  <!-- Contenedor general: en desktop se centra y limita el ancho -->
+  <div class="pagina">
+
+    <!-- ============================================================
+         1. HEADER (logo + botón Suscribite + ícono de usuario)
+         ============================================================ -->
+    <header class="header">
+      <!-- Logo: texto "Economoda" + ícono del logo -->
+      <a href="../index.html" class="logo" aria-label="Economoda, ir al inicio">
+        <span class="logo__texto">Economoda</span>
+        <img class="logo__icono" src="../img/logo-grande-blanco.png" alt="">
+      </a>
+
+      <!-- Acciones de la derecha: suscripción y perfil -->
+      <div class="header__acciones">
+        <button class="boton-suscribite" type="button" data-abrir-modal>Suscribite</button>
+        <button class="boton-usuario" type="button" aria-label="Mi cuenta" data-abrir-login>
+          <img src="../img/persona.png" alt="">
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         2. NAVEGACIÓN (menú de secciones)
+         En mobile se desplaza horizontalmente; en desktop se reparte.
+         Acá la sección activa es "Quiénes somos" y "Actualidad" vuelve a la home.
+         ============================================================ -->
+    <nav class="menu" aria-label="Secciones">
+      <ul class="menu__lista">
+        <li><a href="../index.html" class="menu__link">Actualidad</a></li>
+        <li><a href="#" class="menu__link">Tendencias</a></li>
+        <li><a href="#" class="menu__link">Historias</a></li>
+        <li><a href="#" class="menu__link">Tecnología</a></li>
+        <li><a href="#" class="menu__link">Sustentabilidad</a></li>
+        <li><a href="#" class="menu__link">Caso de estudio</a></li>
+        <li><a href="#" class="menu__link">Moda</a></li>
+        <li><a href="index.html" class="menu__link menu__link--activo">Quiénes somos</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================================
+         3. CONTENIDO PRINCIPAL: QUIÉNES SOMOS
+         Tres bloques centrados: Quiénes somos, Misión y Visión.
+         (La clase "contenido" mantiene el footer abajo, igual que en la home)
+         ============================================================ -->
+    <main class="contenido contenido--institucional">
+      <div class="institucional">
+
+        <!-- ---------- 3.1 QUIÉNES SOMOS ---------- -->
+        <section class="institucional__bloque">
+          <h1 class="institucional__titulo">Quiénes somos</h1>
+          <p class="institucional__texto">
+            Somos un medio nacional que se dedica a producir periodismo especializado basado en
+            datos para consumidores de la industria de la moda y la belleza para comprender las
+            transformaciones del mercado y tomar decisiones estratégicas de consumo.
+          </p>
+        </section>
+
+        <!-- ---------- 3.2 MISIÓN ---------- -->
+        <section class="institucional__bloque">
+          <h2 class="institucional__subtitulo">Misión</h2>
+          <p class="institucional__texto">
+            Informar y explicar los cambios y transformaciones del mercado de la moda desde una
+            perspectiva económica y de consumo, brindando herramientas para que los consumidores
+            comprendan qué hay detrás de los precios, las decisiones de las marcas y las
+            tendencias del sector.
+          </p>
+        </section>
+
+        <!-- ---------- 3.3 VISIÓN ---------- -->
+        <section class="institucional__bloque">
+          <h2 class="institucional__subtitulo">Visión</h2>
+          <p class="institucional__texto">
+            Generar un impacto en las decisiones de compra de los consumidores, promoviendo un
+            consumo de moda más consciente, informado y responsable.
+          </p>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ============================================================
+         4. FOOTER (redes sociales a la izquierda + logo a la derecha)
+         ============================================================ -->
+    <footer class="footer">
+      <!-- Redes sociales -->
+      <ul class="footer__redes">
+        <li>
+          <a href="https://www.instagram.com/economoda__/" class="footer__red" aria-label="Instagram de Economoda" target="_blank" rel="noopener noreferrer">
+            <img src="../img/logo-instagram.png" alt="Instagram">
+          </a>
+        </li>
+        <li>
+          <a href="#" class="footer__red" aria-label="X (Twitter) de Economoda">
+            <img src="../img/logo-x.png" alt="X">
+          </a>
+        </li>
+      </ul>
+
+      <!-- Logo de Economoda (versión blanca) -->
+      <img class="footer__logo" src="../img/logo-footer.png" alt="Economoda">
+    </footer>
+  </div>
+
+  <!-- ============================================================
+       5. VENTANA (MODAL) DE SUSCRIPCIÓN
+       Se abre con "Suscribite", con el ícono de usuario
+       o al tocar una nota "Solo suscriptores".
+       ============================================================ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+      <img class="modal__logo" src="../img/logo-largo-negro.png" alt="Economoda">
+      <h2 id="modal-titulo" class="modal__titulo">Suscribite a Economoda</h2>
+      <p class="modal__texto">Accedé a todas las notas exclusivas para suscriptores.</p>
+      <button class="modal__boton" type="button" data-cerrar-modal>Quiero suscribirme</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       6. VENTANA (MODAL) DE LOGIN
+       Se abre con el ícono de usuario del header.
+       Se cierra con la X, tocando afuera o con la tecla Escape.
+       ============================================================ -->
+  <div class="modal" id="modal-login" hidden>
+    <div class="modal__caja modal__caja--login" role="dialog" aria-modal="true" aria-labelledby="login-titulo">
+      <!-- Botón X para cerrar -->
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+
+      <!-- Logo (ícono blanco) -->
+      <img class="login__logo" src="../img/logo-grande-blanco.png" alt="Economoda">
+
+      <!-- Formulario de ingreso -->
+      <form class="login__form" id="form-login" novalidate>
+        <p id="login-titulo" class="login__texto">Para continuar, ingresá con tu cuenta</p>
+
+        <!-- Campo de correo -->
+        <label class="login__label" for="login-correo">Correo electrónico</label>
+        <input class="login__input" type="email" id="login-correo" name="correo"
+               placeholder="correo electrónico*" autocomplete="email" required>
+
+        <!-- Mensaje de error (lo muestra el JS si el correo no es válido) -->
+        <p class="login__error" id="login-error" hidden>Ingresá un correo electrónico válido.</p>
+
+        <!-- Botón continuar -->
+        <button class="login__boton" type="submit">Continuar</button>
+
+        <!-- Link a registro -->
+        <p class="login__registro">¿No tenés una cuenta? <a href="#" data-registro>Registrate</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lógica de la página (misma que la home, un nivel más arriba) -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
