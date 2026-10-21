@@ -22,6 +22,15 @@
   --peso-bold: 700;
 
   --espacio: 16px;              /* margen lateral en mobile */
+
+  /* Ancho máximo de lo que se ve "adentro" (textos, fotos, menú, botones).
+     Los fondos (header, menú, contenido y footer) ocupan todo el ancho de la pantalla. */
+  --ancho-max: 1100px;
+
+  /* Espacio extra a cada lado cuando la pantalla es más ancha que --ancho-max.
+     En pantallas chicas vale 0 (no hace nada), por eso no afecta a tablet ni celular.
+     Se suma al padding que ya tenía cada sección para que el contenido quede centrado. */
+  --margen-extra: max(0px, calc((100% - var(--ancho-max)) / 2));
 }
 
 
@@ -68,18 +77,22 @@ h1, h2, h3 {
   font-weight: var(--peso-bold);
 }
 
-/* Contenedor general de la página */
+/* Contenedor general de la página
+   Ya no tiene max-width: ocupa todo el ancho de la pantalla, así el fondo
+   de header, menú, contenido y footer se estira de lado a lado.
+   Lo que se ve adentro se centra con --margen-extra (ver cada sección). */
 .pagina {
   display: flex;               /* columna: permite que el footer quede siempre abajo */
   flex-direction: column;
-  max-width: 1100px;
-  margin: 0 auto;
   background: var(--color-fondo);
   min-height: 100vh;
 }
 
 .contenido {
   flex: 1;                     /* el contenido ocupa el espacio libre y empuja el footer */
+  /* Centra todo lo que hay adentro (portada, notas, banner, quiénes somos) en --ancho-max.
+     El fondo blanco sigue ocupando todo el ancho. */
+  padding-inline: var(--margen-extra);
 }
 
 /* Elementos que solo se ven en desktop (en mobile se ocultan) */
@@ -627,7 +640,7 @@ h1, h2, h3 {
   .header {
     position: relative;
     justify-content: center;
-    padding: 20px 32px;
+    padding: 20px calc(32px + var(--margen-extra));   /* el logo queda centrado igual */
   }
 
   .logo__texto {
@@ -652,7 +665,7 @@ h1, h2, h3 {
 
   .header__acciones {
     position: absolute;
-    right: 32px;
+    right: calc(32px + var(--margen-extra));   /* los botones siguen al borde del contenido centrado */
     top: 32px;
 	gap: 10px;              /* separación entre los dos botones */
   }
@@ -661,7 +674,7 @@ h1, h2, h3 {
   .menu__lista {
     justify-content: space-between;
     width: 100%;
-    padding: 10px 24px;
+    padding: 10px calc(24px + var(--margen-extra));   /* las secciones quedan en la zona centrada */
   }
 
   .menu__link {
@@ -785,7 +798,7 @@ h1, h2, h3 {
   }
 
   .footer {
-    padding: 18px 32px;
+    padding: 18px calc(32px + var(--margen-extra));   /* redes y logo quedan en la zona centrada */
   }
 
   .footer__red {
@@ -877,4 +890,149 @@ h1, h2, h3 {
 a,
  button {
   -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Ocultar el ícono del logo en pantallas pequeñas */
+@media (max-width: 375px) {
+  .logo__icono {
+    display: none;
+  }
+}
+
+
+/* ==========================================================
+   14. PÁGINAS DE SECCIÓN (Moda, Sustentabilidad, etc.)
+   Todas usan el mismo esquema: listado de notas (contenido--listado).
+   - Mobile: una columna; la primera nota (nota--destacada) es grande,
+     con la sección y el título sobre la foto.
+   - Tablet: una columna con notas normales.
+   - Desktop (1000px o más): grilla de 2 columnas, foto a la izquierda.
+   ========================================================== */
+
+/* ----- Mobile (base) ----- */
+
+/* Abajo, antes del footer. Arriba no hay espacio: la nota destacada va pegada al menú */
+.notas--listado {
+  padding-top: 0;
+  padding-bottom: 24px;
+}
+
+/* NOTA DESTACADA (solo mobile, hasta 767px)
+   La foto ocupa todo el ancho y la sección + el título se apilan sobre ella.
+   Se logra con una grilla donde la foto abarca todas las filas y el texto
+   se ubica en las filas de abajo. */
+@media (max-width: 767px) {
+  .nota--destacada {
+    margin-inline: calc(-1 * var(--espacio));   /* sale del margen lateral: foto de borde a borde */
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .nota--destacada .nota__enlace {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto auto;     /* aire | sección | título | etiqueta */
+    grid-template-areas: none;
+    column-gap: 0;
+    color: #fff;
+  }
+
+  /* Foto: ocupa todas las filas */
+  .nota--destacada .nota__foto {
+    grid-area: 1 / 1 / 5 / 2;
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  /* Degradé oscuro para que el texto se lea (pseudo-elemento sobre la foto) */
+  .nota--destacada .nota__enlace::before {
+    content: "";
+    grid-area: 1 / 1 / 5 / 2;
+	align-self: stretch; 
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 70%);
+    z-index: 1;
+  }
+
+  /* Sección (regular) y título (semibold), sobre la foto */
+  .nota--destacada .nota__seccion {
+    grid-area: 2 / 1 / 3 / 2;
+    z-index: 2;
+    margin: 0 0 6px;
+    font-size: 0.9rem;
+  }
+
+  .nota--destacada .nota__titulo {
+    grid-area: 3 / 1 / 4 / 2;
+    z-index: 2;
+    margin: 0;
+    padding: 0 var(--espacio) 20px;
+    font-size: 1.35rem;
+    font-weight: var(--peso-semibold);
+    line-height: 1.3;
+  }
+
+  /* La bajada no se muestra en la nota destacada mobile */
+  .nota--destacada .bajada {
+    display: none;
+  }
+
+  /* Si es "Solo suscriptores": etiqueta en blanco abajo a la derecha de la foto */
+  .nota--destacada .etiqueta-premium {
+    grid-area: 4 / 1 / 5 / 2;
+    z-index: 2;
+    margin: 0;
+    padding: 0 var(--espacio) 12px;
+  }
+
+  .nota--destacada .etiqueta-premium img {
+    filter: invert(1);                /* estrella negra -> blanca */
+  }
+
+  .nota--destacada .nota__enlace:hover .nota__titulo {
+    text-decoration: none;
+  }
+}
+
+/* ----- Tablet y desktop (desde 768px) ----- */
+@media (min-width: 768px) {
+  .notas--listado {
+    padding-top: 16px;
+    padding-bottom: 40px;
+  }
+}
+
+/* ----- Desktop grande (desde 1000px) ----- */
+@media (min-width: 1000px) {
+
+  /* .contenido deja de ser grilla y la grilla pasa a ser la lista de notas */
+  .contenido.contenido--listado {
+    display: block;
+  }
+
+  .notas.notas--listado {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* 2 columnas de notas */
+    column-gap: 64px;
+    max-width: none;
+    margin: 0;
+    padding: 16px 32px 40px;
+  }
+
+  /* Foto más grande a la izquierda de cada nota */
+  .notas--listado .nota__enlace {
+    grid-template-columns: 160px 1fr;
+  }
+
+  .notas--listado .nota__foto {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Sin línea en las notas de la última fila */
+  .notas--listado .nota:last-child,
+  .notas--listado .nota:nth-last-child(2):nth-child(odd) {
+    border-bottom: none;
+  }
 }

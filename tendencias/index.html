@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       CONFIGURACIÓN BÁSICA DE LA PÁGINA
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <!-- Este meta es CLAVE para que la versión mobile se vea bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tendencias | Economoda</title>
+
+  <!-- Tipografía Poppins (Google Fonts): 400 regular, 600 semibold, 700 bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <link rel="icon" type="image/png" href="../img/logo-tab.png">
+  
+</head>
+<body>
+
+  <!-- Contenedor general: en desktop se centra y limita el ancho -->
+  <div class="pagina">
+
+    <!-- ============================================================
+         1. HEADER (logo + botón Suscribite + ícono de usuario)
+         ============================================================ -->
+    <header class="header">
+      <!-- Logo: texto "Economoda" + ícono del logo -->
+      <a href="../index.html" class="logo" aria-label="Economoda, ir al inicio">
+        <span class="logo__texto">Economoda</span>
+        <img class="logo__icono" src="../img/logo-grande-blanco.png" alt="">
+      </a>
+
+      <!-- Acciones de la derecha: suscripción y perfil -->
+      <div class="header__acciones">
+        <button class="boton-suscribite" type="button" data-abrir-modal>Suscribite</button>
+        <button class="boton-usuario" type="button" aria-label="Mi cuenta" data-abrir-login>
+          <img src="../img/persona.png" alt="">
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         2. NAVEGACIÓN (menú de secciones)
+         En mobile se desplaza horizontalmente; en desktop se reparte.
+         La sección activa de cada página viene marcada en su HTML.
+         ============================================================ -->
+    <nav class="menu" aria-label="Secciones">
+      <ul class="menu__lista">
+        <li><a href="../index.html" class="menu__link">Actualidad</a></li>
+        <li><a href="../tendencias/index.html" class="menu__link menu__link--activo">Tendencias</a></li>
+        <li><a href="../historias/index.html" class="menu__link">Historias</a></li>
+        <li><a href="../tecnologia/index.html" class="menu__link">Tecnología</a></li>
+        <li><a href="../sustentabilidad/index.html" class="menu__link">Sustentabilidad</a></li>
+        <li><a href="../casos-de-estudio/index.html" class="menu__link">Caso de estudio</a></li>
+        <li><a href="../moda/index.html" class="menu__link">Moda</a></li>
+        <li><a href="../quienes-somos/index.html" class="menu__link">Quiénes somos</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================================
+         3. CONTENIDO PRINCIPAL: SECCIÓN TENDENCIAS
+         Mismo esquema que Moda y Sustentabilidad: solo listado de notas.
+         Mobile: una columna; la primera nota es grande (destacada).
+         Desktop (1000px o más): grilla de 2 columnas con foto grande a la izquierda.
+         La primera nota es la de la home; el resto son templates con foto en negro.
+         ============================================================ -->
+    <main class="contenido contenido--listado">
+
+      <section class="notas notas--listado" aria-label="Notas de Tendencias">
+
+        <!-- Nota destacada: en mobile se ve grande, con la sección y el título SOBRE la foto.
+             En tablet y desktop se ve igual que las demás notas.
+             Es la misma nota que aparece en la home. -->
+        <article class="nota nota--destacada nota--premium">
+          <a href="#" class="nota__enlace" data-nota-premium>
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Generación Z vs. millennials</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="../img/nota5inicio.png" alt="Dos mujeres paseando">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                Redes sociales, segunda mano y precio: en qué se diferencian la Generación Z y los millennials al comprar ropa y hacia dónde va la industria.
+              </p>
+            </div>
+            <!-- Etiqueta "Solo suscriptores" con estrella -->
+            <span class="etiqueta-premium">
+              <img src="../img/estrella-suscripcion.png" alt="">
+              Solo suscriptores
+            </span>
+          </a>
+        </article>
+
+        <!-- Nota de ejemplo (template): reemplazar título, bajada y foto -->
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Título de la nota 2</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="../img/imagen-negra.jpg" alt="Imagen de ejemplo">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                Acá va la bajada de la nota 2 de la sección Tendencias. Escribí acá un resumen breve de la nota que ocupe tres líneas de texto.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Título de la nota 3</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="../img/imagen-negra.jpg" alt="Imagen de ejemplo">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                Acá va la bajada de la nota 3 de la sección Tendencias. Escribí acá un resumen breve de la nota que ocupe tres líneas de texto.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Título de la nota 4</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="../img/imagen-negra.jpg" alt="Imagen de ejemplo">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                Acá va la bajada de la nota 4 de la sección Tendencias. Escribí acá un resumen breve de la nota que ocupe tres líneas de texto.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Título de la nota 5</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="../img/imagen-negra.jpg" alt="Imagen de ejemplo">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                Acá va la bajada de la nota 5 de la sección Tendencias. Escribí acá un resumen breve de la nota que ocupe tres líneas de texto.
+              </p>
+            </div>
+          </a>
+        </article>
+
+        <article class="nota">
+          <a href="#" class="nota__enlace">
+            <span class="nota__seccion">Tendencias</span>
+            <h2 class="nota__titulo">Título de la nota 6</h2>
+            <div class="nota__cuerpo">
+              <img class="nota__foto" src="../img/imagen-negra.jpg" alt="Imagen de ejemplo">
+              <!-- Bajada: 3 líneas -->
+              <p class="bajada">
+                Acá va la bajada de la nota 6 de la sección Tendencias. Escribí acá un resumen breve de la nota que ocupe tres líneas de texto.
+              </p>
+            </div>
+          </a>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- ============================================================
+         4. FOOTER (redes sociales a la izquierda + logo a la derecha)
+         ============================================================ -->
+    <footer class="footer">
+      <!-- Redes sociales -->
+      <ul class="footer__redes">
+        <li>
+          <a href="https://www.instagram.com/economoda__/" class="footer__red" aria-label="Instagram de Economoda" target="_blank" rel="noopener noreferrer">
+            <img src="../img/logo-instagram.png" alt="Instagram">
+          </a>
+        </li>
+        <li>
+          <a href="mailto:economodaaa@gmail.com" class="footer__red" aria-label="Enviar un correo a Economoda">
+            <img src="../img/logo-x.png" alt="Gmail">
+          </a>
+        </li>
+      </ul>
+
+      <!-- Logo de Economoda (versión blanca) -->
+      <img class="footer__logo" src="../img/logo-footer.png" alt="Economoda">
+    </footer>
+  </div>
+
+  <!-- ============================================================
+       5. VENTANA (MODAL) DE SUSCRIPCIÓN
+       Se abre con "Suscribite", con el ícono de usuario
+       o al tocar una nota "Solo suscriptores".
+       ============================================================ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+      <img class="modal__logo" src="../img/logo-largo-negro.png" alt="Economoda">
+      <h2 id="modal-titulo" class="modal__titulo">Suscribite a Economoda</h2>
+      <p class="modal__texto">Accedé a todas las notas exclusivas para suscriptores.</p>
+      <button class="modal__boton" type="button" data-cerrar-modal>Quiero suscribirme</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       6. VENTANA (MODAL) DE LOGIN
+       Se abre con el ícono de usuario del header.
+       Se cierra con la X, tocando afuera o con la tecla Escape.
+       ============================================================ -->
+  <div class="modal" id="modal-login" hidden>
+    <div class="modal__caja modal__caja--login" role="dialog" aria-modal="true" aria-labelledby="login-titulo">
+      <!-- Botón X para cerrar -->
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+
+      <!-- Logo (ícono blanco) -->
+      <img class="login__logo" src="../img/logo-grande-blanco.png" alt="Economoda">
+
+      <!-- Formulario de ingreso -->
+      <form class="login__form" id="form-login" novalidate>
+        <p id="login-titulo" class="login__texto">Para continuar, ingresá con tu cuenta</p>
+
+        <!-- Campo de correo -->
+        <label class="login__label" for="login-correo">Correo electrónico</label>
+        <input class="login__input" type="email" id="login-correo" name="correo"
+               placeholder="correo electrónico*" autocomplete="email" required>
+
+        <!-- Mensaje de error (lo muestra el JS si el correo no es válido) -->
+        <p class="login__error" id="login-error" hidden>Ingresá un correo electrónico válido.</p>
+
+        <!-- Botón continuar -->
+        <button class="login__boton" type="submit">Continuar</button>
+
+        <!-- Link a registro -->
+        <p class="login__registro">¿No tenés una cuenta? <a href="#" data-registro>Registrate</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lógica de la página -->
+  <script src="../js/main.js"></script>
+</body>
+</html>
