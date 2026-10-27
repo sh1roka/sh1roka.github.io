@@ -1036,3 +1036,155 @@ a,
     border-bottom: none;
   }
 }
+
+
+/* ==========================================================
+   15. PÁGINA DE NOTA (artículo)
+   Orden: foto, sección + título + bajada, desarrollo, publicidad.
+   Mobile first: lo de abajo es mobile; en desktop se agranda.
+   La bajada y los párrafos NO tienen límite de renglones.
+   ========================================================== */
+
+/* .contenido es una grilla de 2 columnas en desktop (home); acá es una sola columna */
+.contenido.contenido--nota {
+  display: block;
+}
+
+/* En mobile la nota tiene su propio margen lateral (.contenido no lo trae) */
+.articulo {
+  padding-inline: var(--espacio);
+}
+
+/* ----- Foto ----- */
+.articulo__foto {
+  display: block;
+  margin-inline: calc(-1 * var(--espacio));   /* mobile: la foto ocupa todo el ancho, de borde a borde */
+}
+
+.articulo__foto img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ----- Cabecera: sección, título y bajada ----- */
+.articulo__cabecera {
+  padding: 24px 0 8px;
+  text-align: center;
+}
+
+.articulo__seccion {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: var(--peso-regular);   /* nombre de la sección en regular */
+  margin-bottom: 6px;
+}
+
+.articulo__titulo {
+  font-size: 1.5rem;
+  font-weight: var(--peso-bold);      /* título en bold */
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.articulo__bajada {
+  font-size: 1rem;
+  font-weight: var(--peso-regular);
+  line-height: 1.6;
+}
+
+/* ----- Desarrollo de la nota ----- */
+.articulo__cuerpo {
+  padding-top: 16px;
+}
+
+.articulo__cuerpo p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.1em;
+}
+
+/* Subtítulos dentro de la nota: bold */
+.articulo__cuerpo h2 {
+  font-size: 1.15rem;
+  font-weight: var(--peso-bold);
+  line-height: 1.3;
+  margin: 1.8em 0 0.6em;
+}
+
+/* Publicidad cuadrada en el medio de la nota */
+.publicidad--nota {
+  margin: 32px auto;
+  max-width: 320px;
+}
+
+.publicidad--nota img {
+  width: 100%;
+  height: auto;
+}
+
+/* Banner rectangular al final (usa .banner de la sección 8.a):
+   le damos aire arriba y abajo, y sin el padding lateral de la home porque ya está dentro del margen de la nota */
+.contenido--nota .banner {
+  padding-top: 16px;
+}
+
+/* ----- Tablet y desktop (desde 768px) ----- */
+@media (min-width: 768px) {
+
+  /* La foto pasa a ser un bloque del ancho de la página (igual que la home) con alto controlado */
+  .articulo {
+    padding-inline: 0;
+  }
+
+  .articulo__foto {
+    margin-inline: 0;
+  }
+
+  .articulo__foto img {
+    height: 460px;
+    object-fit: cover;
+  }
+
+  /* Cabecera y texto en una columna angosta y centrada: se lee mejor */
+  .articulo__cabecera,
+  .articulo__cuerpo {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .articulo__cabecera {
+    padding: 40px 0 12px;
+  }
+
+  .articulo__seccion {
+    font-size: 1.1rem;
+  }
+
+  .articulo__titulo {
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+  }
+
+  .articulo__bajada {
+    font-size: 1.15rem;
+  }
+
+  .articulo__cuerpo p {
+    font-size: 1rem;
+  }
+
+  .articulo__cuerpo h2 {
+    font-size: 1.35rem;
+  }
+
+  .publicidad--nota {
+    max-width: 360px;
+    margin: 40px auto;
+  }
+
+  .contenido--nota .banner {
+    padding: 24px 0 36px;
+  }
+}
+
