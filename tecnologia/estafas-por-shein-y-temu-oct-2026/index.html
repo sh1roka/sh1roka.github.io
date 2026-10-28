@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       CONFIGURACIÓN BÁSICA DE LA PÁGINA
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <!-- Este meta es CLAVE para que la versión mobile se vea bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estafas por Shein y Temu: qué advierte ARCA y cómo evitarlas | Economoda</title>
+  <meta name="description" content="Correos falsos que simulan ser de la Aduana buscan pagos y datos de quienes esperan paquetes del exterior. Qué dice ARCA y cómo detectar el phishing.">
+
+  <!-- Tipografía Poppins (Google Fonts): 400 regular, 600 semibold, 700 bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  
+  <link rel="icon" type="image/png" href="../../img/logo-tab.png">
+  
+</head>
+<body>
+
+  <!-- Contenedor general: en desktop se centra y limita el ancho -->
+  <div class="pagina">
+
+    <!-- ============================================================
+         1. HEADER (logo + botón Suscribite + ícono de usuario)
+         ============================================================ -->
+    <header class="header">
+      <!-- Logo: texto "Economoda" + ícono del logo -->
+      <a href="../../index.html" class="logo" aria-label="Economoda, ir al inicio">
+        <span class="logo__texto">Economoda</span>
+        <img class="logo__icono" src="../../img/logo-grande-blanco.png" alt="">
+      </a>
+
+      <!-- Acciones de la derecha: suscripción y perfil -->
+      <div class="header__acciones">
+        <button class="boton-suscribite" type="button" data-abrir-modal>Suscribite</button>
+        <button class="boton-usuario" type="button" aria-label="Mi cuenta" data-abrir-login>
+          <img src="../../img/persona.png" alt="">
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         2. NAVEGACIÓN (menú de secciones)
+         En mobile se desplaza horizontalmente; en desktop se reparte.
+         La sección activa de cada página viene marcada en su HTML.
+         ============================================================ -->
+    <nav class="menu" aria-label="Secciones">
+      <ul class="menu__lista">
+        <li><a href="../../index.html" class="menu__link">Actualidad</a></li>
+        <li><a href="../../tendencias/index.html" class="menu__link">Tendencias</a></li>
+        <li><a href="../../historias/index.html" class="menu__link">Historias</a></li>
+        <li><a href="../../tecnologia/index.html" class="menu__link menu__link--activo">Tecnología</a></li>
+        <li><a href="../../sustentabilidad/index.html" class="menu__link">Sustentabilidad</a></li>
+        <li><a href="../../casos-de-estudio/index.html" class="menu__link">Caso de estudio</a></li>
+        <li><a href="../../moda/index.html" class="menu__link">Moda</a></li>
+        <li><a href="../../quienes-somos/index.html" class="menu__link">Quiénes somos</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================================
+         3. CONTENIDO PRINCIPAL: NOTA
+         Orden: foto, sección + título + bajada, desarrollo de la nota
+         (con la publicidad cuadrada en el medio) y, al final, el banner rectangular.
+         La bajada y los párrafos NO tienen límite de renglones.
+         ============================================================ -->
+    <main class="contenido contenido--nota">
+      <article class="articulo">
+
+        <!-- ---------- 3.1 FOTO ----------
+             Mobile: versión recortada (casi cuadrada). Tablet y desktop: versión ancha. -->
+        <picture class="articulo__foto">
+          <source media="(min-width: 768px)" srcset="../../img/nota4-articulo-pc.jpg">
+          <img src="../../img/nota4-articulo-mobile.jpg" alt="Logo de ARCA">
+        </picture>
+
+        <!-- ---------- 3.2 CABECERA: sección, título y bajada ---------- -->
+        <header class="articulo__cabecera">
+          <span class="articulo__seccion">Tecnología</span>
+          <h1 class="articulo__titulo">Estafas por Shein y Temu: qué advierte ARCA y cómo evitarlas</h1>
+          <p class="articulo__bajada">Correos falsos que simulan ser de la Aduana buscan pagos y datos de quienes esperan paquetes del exterior. Qué dice ARCA y cómo detectar el phishing.</p>
+        </header>
+
+        <!-- ---------- 3.3 DESARROLLO DE LA NOTA ---------- -->
+        <div class="articulo__cuerpo">
+          <p>Los mails falsos de “envíos retenidos en la Aduana” se multiplican entre quienes compran ropa y otros productos en plataformas internacionales. ARCA explicó cómo funcionan, qué buscan y cómo reconocerlos.</p>
+          <p>Comprar ropa en plataformas internacionales como Shein o Temu cambió la forma de consumir moda, pero también abrió un terreno nuevo para el fraude digital. La Agencia de Recaudación y Control Aduanero (ARCA) emitió alertas en febrero y en mayo de 2026 por correos falsos que simulan ser comunicaciones oficiales de la Aduana. Conocer cómo operan permite evitar pagos y filtraciones de datos.</p>
+
+          <h2>Por qué crecen las estafas ligadas a Shein y Temu</h2>
+          <p>Según Ámbito, los precios bajos, los envíos rápidos y las promociones constantes hicieron que muchos usuarios se animaran a comprar ropa, tecnología y artículos para el hogar desde el exterior. Canal 26 agregó que muchos compradores recurren a servicios de courier o al sistema puerta a puerta, lo que genera expectativa por la llegada de los paquetes.</p>
+          <p>Ese contexto es el que aprovechan los ciberdelincuentes. Cuando alguien realmente espera un envío, un mensaje que habla de una retención en la Aduana resulta creíble. Según Noticias NQN, los estafadores aprovechan justamente que muchas personas esperan novedades reales sobre sus compras para hacer más creíble el engaño.</p>
+
+          <!-- PUBLICIDAD CUADRADA (antes de "La estafa más común: el falso envío retenido") -->
+          <aside class="publicidad publicidad--nota" aria-label="Publicidad">
+            <span class="publicidad__etiqueta">Publicidad</span>
+            <img src="../../img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+          </aside>
+
+          <h2>La estafa más común: el falso envío retenido</h2>
+          <p>La maniobra consiste en enviar un mensaje que informa falsamente que un paquete quedó retenido en la Aduana y que hay que pagar algo para liberarlo. En esos correos se mencionan supuestos impuestos, cargos de importación o gastos de almacenamiento, con el objetivo de generar preocupación y urgencia, según informó Noticias NQN.</p>
+          <p>Según Canal 26, los correos apócrifos suelen indicar que una encomienda está en el Correo Central a la espera del pago de aranceles. Con frecuencia incluyen el logo de ARCA, un número de DNI parcial y un botón para pagar una supuesta tasa pendiente. En varios casos, los enlaces llevan a sitios que imitan la estética oficial.</p>
+
+          <h2>Qué buscan los delincuentes</h2>
+          <p>La técnica se llama phishing y consiste en robar información personal y financiera a través de mensajes engañosos. A través de enlaces falsos, los delincuentes intentan obtener datos bancarios, números de tarjetas, claves personales, información del DNI, y usuarios y contraseñas. En algunos casos también piden descargar archivos adjuntos o completar formularios fraudulentos.</p>
+
+          <!-- PUBLICIDAD CUADRADA (antes de "Qué dice ARCA: lo que el organismo nunca hace") -->
+          <aside class="publicidad publicidad--nota" aria-label="Publicidad">
+            <span class="publicidad__etiqueta">Publicidad</span>
+            <img src="../../img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+          </aside>
+
+          <h2>Qué dice ARCA: lo que el organismo nunca hace</h2>
+          <p>ARCA aclaró que no solicita pagos ni información sensible por correo electrónico y que tampoco envía links para liberar paquetes retenidos. Recordó además que el Domicilio Fiscal Electrónico es el único canal formal de comunicación directa con cada contribuyente. Cualquier mensaje que llegue por otra vía debe considerarse sospechoso.</p>
+          <p>El organismo también desmintió los rumores sobre supuestas retenciones masivas de compras hechas en Shein y Temu.</p>
+
+          <!-- PUBLICIDAD CUADRADA (antes de "Señales de alerta y cómo protegerse") -->
+          <aside class="publicidad publicidad--nota" aria-label="Publicidad">
+            <span class="publicidad__etiqueta">Publicidad</span>
+            <img src="../../img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+          </aside>
+
+          <h2>Señales de alerta y cómo protegerse</h2>
+          <p>Según Noticias NQN, ARCA advirtió que existen señales frecuentes para identificar este tipo de fraude: errores de redacción o de traducción, direcciones de mail sospechosas, pedidos urgentes de dinero, amenazas de bloqueo del envío, links desconocidos y solicitudes de claves o datos bancarios.</p>
+          <p>El organismo recomendó no abrir enlaces sospechosos ni descargar archivos adjuntos, verificar siempre el remitente, no compartir información personal, usar contraseñas seguras, revisar con frecuencia los movimientos bancarios e ingresar solo desde canales oficiales. Los intentos de phishing se pueden denunciar a la casilla phishing@arca.gob.ar.</p>
+
+          <h2>Qué tener en cuenta como consumidor</h2>
+          <p>Más allá de las recomendaciones de ARCA, un consejo práctico es verificar el estado del envío directamente en la plataforma de compra o en el courier antes de pagar cualquier cargo adicional, y consultar a ARCA solo por sus canales oficiales. Ante la duda, no hacer clic en el enlace.</p>
+        </div>
+      </article>
+
+      <!-- ---------- 3.4 BANNER RECTANGULAR (va al final de la nota) ---------- -->
+      <aside class="banner" aria-label="Publicidad">
+        <picture>
+          <!-- Desktop/tablet (768px o más): banner horizontal -->
+          <source media="(min-width: 768px)" srcset="../../img/publicidad-banner-desktop.png">
+          <!-- Mobile: banner más alto -->
+          <img src="../../img/publicidad-banner-mobile.png" alt="Espacio publicitario">
+        </picture>
+      </aside>
+    </main>
+
+    <!-- ============================================================
+         5. FOOTER (redes sociales a la izquierda + logo a la derecha)
+         ============================================================ -->
+    <footer class="footer">
+      <!-- Redes sociales -->
+      <ul class="footer__redes">
+        <li>
+          <a href="https://www.instagram.com/economoda__/" class="footer__red" aria-label="Instagram de Economoda" target="_blank" rel="noopener noreferrer">
+            <img src="../../img/logo-instagram.png" alt="Instagram">
+          </a>
+        </li>
+        <li>
+          <a href="mailto:economodaaa@gmail.com" class="footer__red" aria-label="Enviar un correo a Economoda">
+            <img src="../../img/logo-x.png" alt="Gmail">
+          </a>
+        </li>
+      </ul>
+
+      <!-- Logo de Economoda (versión blanca) -->
+      <img class="footer__logo" src="../../img/logo-footer.png" alt="Economoda">
+    </footer>
+  </div>
+
+  <!-- ============================================================
+       6. VENTANA (MODAL) DE SUSCRIPCIÓN
+       Se abre con "Suscribite", con el ícono de usuario
+       o al tocar una nota "Solo suscriptores".
+       ============================================================ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+      <img class="modal__logo" src="../../img/logo-largo-negro.png" alt="Economoda">
+      <h2 id="modal-titulo" class="modal__titulo">Suscribite a Economoda</h2>
+      <p class="modal__texto">Accedé a todas las notas exclusivas para suscriptores.</p>
+      <button class="modal__boton" type="button" data-cerrar-modal>Quiero suscribirme</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       7. VENTANA (MODAL) DE LOGIN
+       Se abre con el ícono de usuario del header.
+       Se cierra con la X, tocando afuera o con la tecla Escape.
+       ============================================================ -->
+  <div class="modal" id="modal-login" hidden>
+    <div class="modal__caja modal__caja--login" role="dialog" aria-modal="true" aria-labelledby="login-titulo">
+      <!-- Botón X para cerrar -->
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+
+      <!-- Logo (ícono blanco) -->
+      <img class="login__logo" src="../../img/logo-grande-blanco.png" alt="Economoda">
+
+      <!-- Formulario de ingreso -->
+      <form class="login__form" id="form-login" novalidate>
+        <p id="login-titulo" class="login__texto">Para continuar, ingresá con tu cuenta</p>
+
+        <!-- Campo de correo -->
+        <label class="login__label" for="login-correo">Correo electrónico</label>
+        <input class="login__input" type="email" id="login-correo" name="correo"
+               placeholder="correo electrónico*" autocomplete="email" required>
+
+        <!-- Mensaje de error (lo muestra el JS si el correo no es válido) -->
+        <p class="login__error" id="login-error" hidden>Ingresá un correo electrónico válido.</p>
+
+        <!-- Botón continuar -->
+        <button class="login__boton" type="submit">Continuar</button>
+
+        <!-- Link a registro -->
+        <p class="login__registro">¿No tenés una cuenta? <a href="#" data-registro>Registrate</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lógica de la página -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>

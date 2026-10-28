@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       CONFIGURACIÓN BÁSICA DE LA PÁGINA
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <!-- Este meta es CLAVE para que la versión mobile se vea bien -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galpón de Ropa: el emprendimiento que nació en un taller abandonado | Economoda</title>
+  <meta name="description" content="Dos amigos de 22 años empezaron a vender ropa usada en 2012. Hoy Galpón de Ropa es una Empresa B con 94 empleados y unas 40.000 prendas por mes.">
+
+  <!-- Tipografía Poppins (Google Fonts): 400 regular, 600 semibold, 700 bold -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  
+  <link rel="icon" type="image/png" href="../../img/logo-tab.png">
+  
+</head>
+<body>
+
+  <!-- Contenedor general: en desktop se centra y limita el ancho -->
+  <div class="pagina">
+
+    <!-- ============================================================
+         1. HEADER (logo + botón Suscribite + ícono de usuario)
+         ============================================================ -->
+    <header class="header">
+      <!-- Logo: texto "Economoda" + ícono del logo -->
+      <a href="../../index.html" class="logo" aria-label="Economoda, ir al inicio">
+        <span class="logo__texto">Economoda</span>
+        <img class="logo__icono" src="../../img/logo-grande-blanco.png" alt="">
+      </a>
+
+      <!-- Acciones de la derecha: suscripción y perfil -->
+      <div class="header__acciones">
+        <button class="boton-suscribite" type="button" data-abrir-modal>Suscribite</button>
+        <button class="boton-usuario" type="button" aria-label="Mi cuenta" data-abrir-login>
+          <img src="../../img/persona.png" alt="">
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         2. NAVEGACIÓN (menú de secciones)
+         En mobile se desplaza horizontalmente; en desktop se reparte.
+         La sección activa de cada página viene marcada en su HTML.
+         ============================================================ -->
+    <nav class="menu" aria-label="Secciones">
+      <ul class="menu__lista">
+        <li><a href="../../index.html" class="menu__link">Actualidad</a></li>
+        <li><a href="../../tendencias/index.html" class="menu__link">Tendencias</a></li>
+        <li><a href="../../historias/index.html" class="menu__link menu__link--activo">Historias</a></li>
+        <li><a href="../../tecnologia/index.html" class="menu__link">Tecnología</a></li>
+        <li><a href="../../sustentabilidad/index.html" class="menu__link">Sustentabilidad</a></li>
+        <li><a href="../../casos-de-estudio/index.html" class="menu__link">Caso de estudio</a></li>
+        <li><a href="../../moda/index.html" class="menu__link">Moda</a></li>
+        <li><a href="../../quienes-somos/index.html" class="menu__link">Quiénes somos</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================================
+         3. CONTENIDO PRINCIPAL: NOTA
+         Orden: foto, sección + título + bajada, desarrollo de la nota
+         (con la publicidad cuadrada en el medio) y, al final, el banner rectangular.
+         La bajada y los párrafos NO tienen límite de renglones.
+         ============================================================ -->
+    <main class="contenido contenido--nota">
+      <article class="articulo">
+
+        <!-- ---------- 3.1 FOTO ----------
+             Mobile: versión recortada (casi cuadrada). Tablet y desktop: versión ancha. -->
+        <picture class="articulo__foto">
+          <source media="(min-width: 768px)" srcset="../../img/nota6-articulo-pc.jpg">
+          <img src="../../img/nota6-articulo-mobile.jpg" alt="Hombre frente al local Galpón de Ropa">
+        </picture>
+
+        <!-- ---------- 3.2 CABECERA: sección, título y bajada ---------- -->
+        <header class="articulo__cabecera">
+          <span class="articulo__seccion">Historias</span>
+          <h1 class="articulo__titulo">Galpón de Ropa: el emprendimiento que nació en un taller abandonado y llegó a los shoppings</h1>
+          <p class="articulo__bajada">Dos amigos de 22 años empezaron a vender ropa usada en 2012. Hoy Galpón de Ropa es una Empresa B con 94 empleados y unas 40.000 prendas por mes.</p>
+        </header>
+
+        <!-- ---------- 3.3 DESARROLLO DE LA NOTA ---------- -->
+        <div class="articulo__cuerpo">
+          <p>Nació en 2012 con una web precaria y ventas por Facebook, creció en un taller mecánico abandonado de Villa Crespo y hoy tiene locales en shoppings. La historia de Galpón de Ropa muestra cómo la ropa usada se volvió un negocio.</p>
+          <p>Galpón de Ropa es hoy una de las empresas de moda circular más conocidas de Argentina. En septiembre de 2026 abrió su primer punto de venta dentro de un shopping, en el DOT Baires, y llevó la ropa de segunda mano a un circuito de consumo masivo. Pero su historia empezó mucho antes y con muy pocos recursos.</p>
+
+          <h2>Dos amigos y una hora por día</h2>
+          <p>Según iProfesional, la empresa nació en 2012 de la inquietud de dos amigos, Gonzalo Ades Posse y Juan Ezequiel Báez. Tenían 22 años: uno trabajaba como mozo y el otro como recepcionista de madrugada. Le dedicaban apenas una hora diaria al proyecto, con la idea de crear un espacio donde comprar ropa usada fuera una experiencia de categoría.</p>
+          <p>Empezaron con una web precaria y vendiendo por Facebook. Lo que comenzó con ropa de amigos y familiares fue tomando forma como un modelo de curaduría, en el que cada prenda se selecciona antes de salir a la venta.</p>
+
+          <!-- PUBLICIDAD CUADRADA (antes de "El taller mecánico de Villa Crespo") -->
+          <aside class="publicidad publicidad--nota" aria-label="Publicidad">
+            <span class="publicidad__etiqueta">Publicidad</span>
+            <img src="../../img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+          </aside>
+
+          <h2>El taller mecánico de Villa Crespo</h2>
+          <p>El verdadero salto llegó en 2014, cuando alquilaron un taller mecánico abandonado en Villa Crespo. Lo llamaron “Galpón”, un nombre que quedó como identidad de la marca. Ese espacio definió su sello: una estética cuidada, procesos transparentes y una curaduría rigurosa que buscaba eliminar el prejuicio sobre la feria americana.</p>
+
+          <h2>Un negocio basado en datos</h2>
+          <p>Detrás de los percheros hay un sistema de gestión propio. Según el CEO, el software desarrollado por la empresa permite decidir con datos y manejar unas 40.000 prendas por mes. La compañía asegura que acumula más de 2,7 millones de prendas recirculadas. Son cifras que informa la propia empresa y que no pudimos contrastar con una fuente independiente.</p>
+          <p>El crecimiento fue orgánico, sin inversión externa: la empresa reinvirtió sus márgenes en tecnología y equipo. Es Empresa B certificada desde 2023 y, según iProfesional, en mayo de 2026 tenía un equipo de 94 personas, de las cuales el 72% son mujeres. Además, gestiona los descartes con cooperativas de recuperadores urbanos y con donaciones a escuelas.</p>
+
+          <!-- PUBLICIDAD CUADRADA (antes de "Del galpón al shopping") -->
+          <aside class="publicidad publicidad--nota" aria-label="Publicidad">
+            <span class="publicidad__etiqueta">Publicidad</span>
+            <img src="../../img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+          </aside>
+
+          <h2>Del galpón al shopping</h2>
+          <p>En 2023, Galpón de Ropa abrió un local en el subsuelo de Alto Palermo, su séptimo en la Ciudad de Buenos Aires. Funciona como “Punto de Toma”: compra ropa, pero no la vende. Los clientes reciben un crédito en la aplicación ¡appa! y más de 30 marcas del shopping se adhirieron a la propuesta, según Economía Sustentable.</p>
+          <p>En septiembre de 2026 dio el paso siguiente: inauguró en el DOT Baires un local de 112 metros cuadrados, su primer punto de venta en un gran centro comercial. Hoy suma 11 puntos de venta en Buenos Aires, más un punto de toma en Alto Palermo y una plataforma de comercio electrónico con alcance nacional.</p>
+
+          <!-- PUBLICIDAD CUADRADA (antes de "Un CEO que viene del acero") -->
+          <aside class="publicidad publicidad--nota" aria-label="Publicidad">
+            <span class="publicidad__etiqueta">Publicidad</span>
+            <img src="../../img/publicidad1.png" alt="Publicidad: BAFWEEK, Buenos Aires Fashion Week">
+          </aside>
+
+          <h2>Un CEO que viene del acero</h2>
+          <p>Desde mayo de 2025, la empresa está liderada por Luciano Arrighi. Es contador de la UBA y trabajó en PwC, en IBM y durante 13 años en Ternium, del Grupo Techint, donde vivió ocho años como expatriado entre Luxemburgo y México. Luego dejó esa carrera, estudió lujo en París, Milán y Dubái y completó un máster ejecutivo en management para la industria del lujo.</p>
+          <p>Su planteo, según iProfesional, es que la sostenibilidad es el nuevo lujo y que las prendas circulares con historia y curaduría cumplen con ese criterio. Es una definición del propio CEO, no un dato medido.</p>
+
+          <h2>Qué viene</h2>
+          <p>Según la entrevista, los planes de la compañía tienen tres ejes: expandirse a más ciudades de Argentina, armar un sistema de franquicias que permita crecer más rápido sin perder la curaduría, y salir al exterior con la meta de convertirse en referente de la moda circular en América Latina. Son objetivos declarados, no resultados.</p>
+          <p>Esa expansión se da en un contexto exigente para la industria de la moda: según FITA, la actividad textil acumuló una caída de 22,6% en los primeros siete meses de 2026. La historia de Galpón de Ropa muestra que, en ese escenario, la reventa fue uno de los segmentos que abrió locales.</p>
+        </div>
+      </article>
+
+      <!-- ---------- 3.4 BANNER RECTANGULAR (va al final de la nota) ---------- -->
+      <aside class="banner" aria-label="Publicidad">
+        <picture>
+          <!-- Desktop/tablet (768px o más): banner horizontal -->
+          <source media="(min-width: 768px)" srcset="../../img/publicidad-banner-desktop.png">
+          <!-- Mobile: banner más alto -->
+          <img src="../../img/publicidad-banner-mobile.png" alt="Espacio publicitario">
+        </picture>
+      </aside>
+    </main>
+
+    <!-- ============================================================
+         5. FOOTER (redes sociales a la izquierda + logo a la derecha)
+         ============================================================ -->
+    <footer class="footer">
+      <!-- Redes sociales -->
+      <ul class="footer__redes">
+        <li>
+          <a href="https://www.instagram.com/economoda__/" class="footer__red" aria-label="Instagram de Economoda" target="_blank" rel="noopener noreferrer">
+            <img src="../../img/logo-instagram.png" alt="Instagram">
+          </a>
+        </li>
+        <li>
+          <a href="mailto:economodaaa@gmail.com" class="footer__red" aria-label="Enviar un correo a Economoda">
+            <img src="../../img/logo-x.png" alt="Gmail">
+          </a>
+        </li>
+      </ul>
+
+      <!-- Logo de Economoda (versión blanca) -->
+      <img class="footer__logo" src="../../img/logo-footer.png" alt="Economoda">
+    </footer>
+  </div>
+
+  <!-- ============================================================
+       6. VENTANA (MODAL) DE SUSCRIPCIÓN
+       Se abre con "Suscribite", con el ícono de usuario
+       o al tocar una nota "Solo suscriptores".
+       ============================================================ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+      <img class="modal__logo" src="../../img/logo-largo-negro.png" alt="Economoda">
+      <h2 id="modal-titulo" class="modal__titulo">Suscribite a Economoda</h2>
+      <p class="modal__texto">Accedé a todas las notas exclusivas para suscriptores.</p>
+      <button class="modal__boton" type="button" data-cerrar-modal>Quiero suscribirme</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       7. VENTANA (MODAL) DE LOGIN
+       Se abre con el ícono de usuario del header.
+       Se cierra con la X, tocando afuera o con la tecla Escape.
+       ============================================================ -->
+  <div class="modal" id="modal-login" hidden>
+    <div class="modal__caja modal__caja--login" role="dialog" aria-modal="true" aria-labelledby="login-titulo">
+      <!-- Botón X para cerrar -->
+      <button class="modal__cerrar" type="button" aria-label="Cerrar" data-cerrar-modal>&times;</button>
+
+      <!-- Logo (ícono blanco) -->
+      <img class="login__logo" src="../../img/logo-grande-blanco.png" alt="Economoda">
+
+      <!-- Formulario de ingreso -->
+      <form class="login__form" id="form-login" novalidate>
+        <p id="login-titulo" class="login__texto">Para continuar, ingresá con tu cuenta</p>
+
+        <!-- Campo de correo -->
+        <label class="login__label" for="login-correo">Correo electrónico</label>
+        <input class="login__input" type="email" id="login-correo" name="correo"
+               placeholder="correo electrónico*" autocomplete="email" required>
+
+        <!-- Mensaje de error (lo muestra el JS si el correo no es válido) -->
+        <p class="login__error" id="login-error" hidden>Ingresá un correo electrónico válido.</p>
+
+        <!-- Botón continuar -->
+        <button class="login__boton" type="submit">Continuar</button>
+
+        <!-- Link a registro -->
+        <p class="login__registro">¿No tenés una cuenta? <a href="#" data-registro>Registrate</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lógica de la página -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>
