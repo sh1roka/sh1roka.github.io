@@ -703,8 +703,12 @@ h1, h2, h3 {
     margin-bottom: 0px;
   }
 
-  .portada__titulo:hover {
+/*  .portada__titulo:hover {
 	text-decoration: underline;
+  } */
+  
+  .portada__enlace:hover .portada__titulo {
+    text-decoration: underline;
   }
   
   /* El párrafo (máx. 4 líneas) aparece en desktop */
